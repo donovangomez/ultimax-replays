@@ -11,7 +11,13 @@ export default function Home() {
 
   // search character function
   const characterSearchHandler = (e) => {
+    e.preventDefault();
     console.log("handler worked!");
+    searchMatches(characterOne, characterTwo);
+  };
+
+  const searchMatches = async (characterOne, characterTwo) => {
+    console.log(`searching for ${characterOne} vs ${characterTwo}`);
   };
 
   return (
@@ -31,7 +37,7 @@ export default function Home() {
         />
       </Flex>
       <Flex flex="1">
-        <h2>Hello Bish</h2>
+        <h2>Biscuits hops on commentary</h2>
       </Flex>
     </Flex>
   );

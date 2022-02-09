@@ -34,7 +34,7 @@ export default function Form({
         <PlayerTwoInput playerTwo={playerTwo} setPlayerTwo={setPlayerTwo} />
       </Flex>
       <Button type="submit" onClick={characterSearchHandler}>
-        Searcg
+        Search
       </Button>
     </form>
   );
