@@ -1,13 +1,26 @@
 import styles from "../styles/Home.module.css";
 import Form from "../components/Form";
+import { supabase } from "../utils/client";
 import { Flex } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
+import MatchCard from "../components/MatchCard";
 
 export default function Home() {
   const [characterOne, setCharacterOne] = useState("");
   const [characterTwo, setCharacterTwo] = useState("");
   const [playerOne, setPlayerOne] = useState("");
   const [playerTwo, setPlayerTwo] = useState("");
+  const [replays, setReplays] = useState([]);
+
+  const fetchReplays = async () => {
+    const { data } = await supabase.from("replays").select();
+    setReplays(data);
+    console.log(data);
+  };
+
+  useEffect(() => {
+    fetchReplays();
+  }, []);
 
   // search character function
   const characterSearchHandler = (e) => {
@@ -37,7 +50,19 @@ export default function Home() {
         />
       </Flex>
       <Flex flex="1">
-        <h2>Biscuits hops on commentary</h2>
+        <div>
+          {replays.map((replay) => (
+            <MatchCard
+              key={replay.id}
+              playerOneCharacter={replay.p1_character}
+              playerTwoCharacter={replay.p2_character}
+              playerOne={replay.p1_handle}
+              playerTwo={replay.p2_handle}
+              version={replay.version}
+              link={replay.replay_link}
+            />
+          ))}
+        </div>
       </Flex>
     </Flex>
   );
