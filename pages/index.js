@@ -11,6 +11,7 @@ export default function Home() {
   const [playerOne, setPlayerOne] = useState("");
   const [playerTwo, setPlayerTwo] = useState("");
   const [replays, setReplays] = useState([]);
+  const [filterReplays, setFilterReplays] = useState([]);
   const [filterCharacter, setFilterCharacter] = useState("");
 
   const fetchReplays = async () => {
@@ -43,7 +44,7 @@ export default function Home() {
     const newReplays = replays.filter(
       (replay) => replay.p1_character == characterOne
     );
-    setReplays(newReplays);
+    setFilterReplays(newReplays);
   };
 
   return (
@@ -67,17 +68,36 @@ export default function Home() {
         <div>
           {filterCharacter}
           <h1>Matches!</h1>
-          {replays.map((replay) => (
-            <MatchCard
-              key={replay.id}
-              playerOneCharacter={replay.p1_character}
-              playerTwoCharacter={replay.p2_character}
-              playerOne={replay.p1_handle}
-              playerTwo={replay.p2_handle}
-              version={replay.version}
-              link={replay.replay_link}
-            />
-          ))}
+
+          {filterReplays.length > 0 ? (
+            <div>
+              {filterReplays.map((replay) => (
+                <MatchCard
+                  key={replay.id}
+                  playerOneCharacter={replay.p1_character}
+                  playerTwoCharacter={replay.p2_character}
+                  playerOne={replay.p1_handle}
+                  playerTwo={replay.p2_handle}
+                  version={replay.version}
+                  link={replay.replay_link}
+                />
+              ))}
+            </div>
+          ) : (
+            <div>
+              {replays.map((replay) => (
+                <MatchCard
+                  key={replay.id}
+                  playerOneCharacter={replay.p1_character}
+                  playerTwoCharacter={replay.p2_character}
+                  playerOne={replay.p1_handle}
+                  playerTwo={replay.p2_handle}
+                  version={replay.version}
+                  link={replay.replay_link}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </Flex>
     </Flex>
