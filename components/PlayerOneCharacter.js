@@ -12,7 +12,7 @@ export default function PlayerOneCharacter({ characterOne, setCharacterOne }) {
         <option value="Elizabeth">Elizabeth</option>
         <option value="Junpei">Junpei</option>
         <option value="Kanji">Kanji</option>
-        <option value="Ken">Ken</option>
+        <option value="Ken Amada">Ken</option>
         <option value="Labrys">Labrys</option>
         <option value="Margaret">Margaret</option>
         <option value="Marie">Marie</option>
@@ -24,7 +24,7 @@ export default function PlayerOneCharacter({ characterOne, setCharacterOne }) {
         <option value="Minazuki">MINAZUKI</option>
         <option value="Teddie">Teddie</option>
         <option value="Yosuke">Yosuke</option>
-        <option value="Yu">Yu</option>
+        <option value="Yu Narukami">Yu</option>
         <option value="Yukari">Yukari</option>
         <option value="Yukiko">Yukiko</option>
       </Select>

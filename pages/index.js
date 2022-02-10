@@ -11,11 +11,12 @@ export default function Home() {
   const [playerOne, setPlayerOne] = useState("");
   const [playerTwo, setPlayerTwo] = useState("");
   const [replays, setReplays] = useState([]);
+  const [filterCharacter, setFilterCharacter] = useState("");
 
   const fetchReplays = async () => {
-    const { data } = await supabase.from("replays").select();
-    setReplays(data);
-    console.log(data);
+    let { data: replays, error } = await supabase.from("replays").select("*");
+    setReplays(replays);
+    console.log("this is the data", replays);
   };
 
   useEffect(() => {
@@ -27,10 +28,22 @@ export default function Home() {
     e.preventDefault();
     console.log("handler worked!");
     searchMatches(characterOne, characterTwo);
+    filterCharacterMatches(characterOne);
   };
 
   const searchMatches = async (characterOne, characterTwo) => {
     console.log(`searching for ${characterOne} vs ${characterTwo}`);
+    // replays.filter((replay) => (replay.p1_character = characterOne));
+  };
+
+  // filter matches
+  const filterCharacterMatches = async (characterOne) => {
+    setFilterCharacter(characterOne);
+    console.log(filterCharacter);
+    const newReplays = replays.filter(
+      (replay) => replay.p1_character == characterOne
+    );
+    setReplays(newReplays);
   };
 
   return (
@@ -47,10 +60,13 @@ export default function Home() {
           setPlayerOne={setPlayerOne}
           setPlayerTwo={setPlayerTwo}
           characterSearchHandler={characterSearchHandler}
+          filterCharacterMatches={filterCharacterMatches}
         />
       </Flex>
       <Flex flex="1">
         <div>
+          {filterCharacter}
+          <h1>Matches!</h1>
           {replays.map((replay) => (
             <MatchCard
               key={replay.id}

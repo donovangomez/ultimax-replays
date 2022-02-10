@@ -15,6 +15,7 @@ export default function Form({
   playerTwo,
   setPlayerTwo,
   characterSearchHandler,
+  filterCharacterMatches,
 }) {
   return (
     <form>
