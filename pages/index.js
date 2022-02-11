@@ -10,6 +10,8 @@ export default function Home() {
   const [characterTwo, setCharacterTwo] = useState("");
   const [playerOne, setPlayerOne] = useState("");
   const [playerTwo, setPlayerTwo] = useState("");
+  const [options, setOptions] = useState([]);
+  const [image, setImage] = useState("");
   const [replays, setReplays] = useState([]);
   const [filterReplays, setFilterReplays] = useState([]);
   const [filterCharacter, setFilterCharacter] = useState("");
@@ -62,6 +64,10 @@ export default function Home() {
           setPlayerTwo={setPlayerTwo}
           characterSearchHandler={characterSearchHandler}
           filterCharacterMatches={filterCharacterMatches}
+          image={image}
+          setImage={setImage}
+          options={options}
+          setOptions={setOptions}
         />
       </Flex>
       <Flex flex="1">

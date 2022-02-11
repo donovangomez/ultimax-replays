@@ -16,6 +16,10 @@ export default function Form({
   setPlayerTwo,
   characterSearchHandler,
   filterCharacterMatches,
+  image,
+  setImage,
+  options,
+  setOptions,
 }) {
   return (
     <form>
@@ -24,6 +28,10 @@ export default function Form({
         <PlayerOneCharacter
           characterOne={characterOne}
           setCharacterOne={setCharacterOne}
+          image={image}
+          setImage={setImage}
+          options={options}
+          setOptions={setOptions}
         />
         <PlayerTwoCharacter
           characterTwo={characterTwo}

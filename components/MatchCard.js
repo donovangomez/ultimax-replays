@@ -8,6 +8,7 @@ export default function matchCard({
   playerTwo,
   version,
   link,
+  image,
 }) {
   return (
     <div key={key}>
