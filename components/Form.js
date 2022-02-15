@@ -35,7 +35,10 @@ export default function Form({
         />
         <PlayerTwoCharacter
           characterTwo={characterTwo}
-          setCharacterTwo={setCharacterTwo}
+          image={image}
+          setImage={setImage}
+          options={options}
+          setOptions={setOptions}
         />
       </Flex>
       <Flex>
