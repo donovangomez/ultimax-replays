@@ -30,19 +30,17 @@ export default function Home() {
   const characterSearchHandler = (e) => {
     e.preventDefault();
     console.log("handler worked!");
-    searchMatches(characterOne, characterTwo);
-    filterCharacterMatches(characterOne);
+    // searchMatches(characterOne, characterTwo);
+    filterCharacterMatches(characterOne + characterTwo);
   };
 
-  const searchMatches = async (characterOne, characterTwo) => {
-    console.log(`searching for ${characterOne} vs ${characterTwo}`);
-    // replays.filter((replay) => (replay.p1_character = characterOne));
-  };
+  // const searchMatches = async (characterOne, characterTwo) => {
+  //   console.log(`searching for ${characterOne} vs ${characterTwo}`);
+  //   // replays.filter((replay) => (replay.p1_character = characterOne));
+  // };
 
   // filter matches
   const filterCharacterMatches = async (characterOne) => {
-    setFilterCharacter(characterOne);
-    console.log(filterCharacter);
     const newReplays = replays.filter(
       (replay) => replay.p1_character == characterOne
     );

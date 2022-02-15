@@ -16,7 +16,6 @@ export default function PlayerOneCharacter({
       .from("characters")
       .select("*");
     setOptions(characters);
-    console.log(characters);
   };
 
   useEffect(() => {
