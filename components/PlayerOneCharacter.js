@@ -28,7 +28,7 @@ export default function PlayerOneCharacter({
         placeholder="Select character"
       >
         {options.map((option) => (
-          <option value={option.first_name}>
+          <option value={option.first_name} key={option.id}>
             {option.first_name} {option.last_name}
           </option>
         ))}

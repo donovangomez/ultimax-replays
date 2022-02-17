@@ -31,7 +31,8 @@ export default function Home() {
     e.preventDefault();
     console.log("handler worked!");
     // searchMatches(characterOne, characterTwo);
-    filterCharacterMatches(characterOne + characterTwo);
+    // Chara1 + Chara2 Works for both for some reason lmfao
+    filterCharacterMatches(characterOne, characterTwo);
   };
 
   // const searchMatches = async (characterOne, characterTwo) => {
@@ -40,7 +41,7 @@ export default function Home() {
   // };
 
   // filter matches
-  const filterCharacterMatches = async (characterOne) => {
+  const filterCharacterMatches = async () => {
     const newReplays = replays.filter(
       (replay) => replay.p1_character == characterOne
     );
