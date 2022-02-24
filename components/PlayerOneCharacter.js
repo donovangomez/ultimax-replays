@@ -20,6 +20,7 @@ export default function PlayerOneCharacter({
 
   useEffect(() => {
     fetchOptions();
+    console.log(characterOne);
   }, []);
   return (
     <>
@@ -32,28 +33,6 @@ export default function PlayerOneCharacter({
             {option.first_name} {option.last_name}
           </option>
         ))}
-        {/* <option value="Aigis">Aigis</option>
-        <option value="Akihiko">Akihiko</option>
-        <option value="Elizabeth">Elizabeth</option>
-        <option value="Junpei">Junpei</option>
-        <option value="Kanji">Kanji</option>
-        <option value="Ken Amada">Ken</option>
-        <option value="Labrys">Labrys</option>
-        <option value="Margaret">Margaret</option>
-        <option value="Marie">Marie</option>
-        <option value="Mitsuru">Mitsuru</option>
-        <option value="Naoto">Naoto</option>
-        <option value="Rise">Rise</option>
-        <option value="Shadow Labrys">Shadow Labrys</option>
-        <option value="Sho">Sho</option>
-        <option value="Minazuki">MINAZUKI</option>
-        <option value="Teddie">Teddie</option>
-        <option value="Yosuke">Yosuke</option>
-        <option value="Yu Narukami" image="../assets/characters/Yu_Icon.png">
-          Yu
-        </option>
-        <option value="Yukari">Yukari</option>
-        <option value="Yukiko">Yukiko</option> */}
       </Select>
 
       {characterOne}

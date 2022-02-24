@@ -29,16 +29,16 @@ export default function Home() {
   // search character function
   const characterSearchHandler = (e) => {
     e.preventDefault();
-    console.log("handler worked!");
-    // searchMatches(characterOne, characterTwo);
-    // Chara1 + Chara2 Works for both for some reason lmfao
-    filterCharacterMatches(characterOne, characterTwo);
-  };
+    console.log(e);
 
-  // const searchMatches = async (characterOne, characterTwo) => {
-  //   console.log(`searching for ${characterOne} vs ${characterTwo}`);
-  //   // replays.filter((replay) => (replay.p1_character = characterOne));
-  // };
+    // this only gets 1P side
+    // filterCharacterMatches(characterOne, characterTwo);
+
+    // This gets both characters BUT doesn't take p2 side
+    filterCharacterMatches(characterOne + characterTwo);
+
+    console.log(`searching for ${characterOne} vs ${characterTwo}`);
+  };
 
   // filter matches
   const filterCharacterMatches = async () => {
@@ -85,6 +85,8 @@ export default function Home() {
                   playerTwo={replay.p2_handle}
                   version={replay.version}
                   link={replay.replay_link}
+                  image={image}
+                  setImage={setImage}
                 />
               ))}
             </div>
@@ -99,6 +101,8 @@ export default function Home() {
                   playerTwo={replay.p2_handle}
                   version={replay.version}
                   link={replay.replay_link}
+                  image={image}
+                  setImage={setImage}
                 />
               ))}
             </div>

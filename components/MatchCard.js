@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Flex, Box, Text } from "@chakra-ui/react";
+import { supabase } from "../utils/client";
 
 export default function matchCard({
   key,
@@ -9,18 +11,36 @@ export default function matchCard({
   version,
   link,
   image,
+  setImage,
 }) {
+  const fetchOptions = async () => {
+    let { data: characters, error } = await supabase
+      .from("characters")
+      .select("*");
+  };
+
+  useEffect(() => {
+    fetchOptions();
+  }, []);
+
   return (
-    <div key={key}>
-      <h2>{playerOne}</h2>
-      <h2>{playerOneCharacter}</h2>
+    <Flex border="2px" key={key}>
+      {image}
+      <Box>
+        <h2>{playerOne}</h2>
+        <h2>{playerOneCharacter}</h2>
+      </Box>
       <span>Vs.</span>
-      <h2>{playerTwo}</h2>
-      <h2>{playerTwoCharacter}</h2>
-      <p>{version}</p>
-      <a href={link} target="_blank">
-        Watch
-      </a>
-    </div>
+      <Box>
+        <h2>{playerTwo}</h2>
+        <h2>{playerTwoCharacter}</h2>
+      </Box>
+      <Box>
+        <p>{version}</p>
+        <a href={link} target="_blank">
+          Watch
+        </a>
+      </Box>
+    </Flex>
   );
 }
